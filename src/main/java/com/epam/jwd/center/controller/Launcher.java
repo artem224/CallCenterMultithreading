@@ -14,8 +14,8 @@ import java.util.concurrent.Executors;
 public class Launcher {
     public static void main(String[] args) {
         CallCenter callCenter = CallCenter.getInstance();
-        Client client5 = new Client(5,"Кирилл", callCenter,CallScope.TECH);
-        Client client1 = new Client(1,"Артём", callCenter, CallScope.TECH);
+        Client client5 = new Client(5,"Кирилл", callCenter,CallScope.SUPPORT);
+        Client client1 = new Client(1,"Артём", callCenter, CallScope.ORDERS);
         Client client2 = new Client(2,"дима", callCenter,CallScope.TECH);
         Client client3 = new Client(3,"Саня", callCenter,CallScope.TECH);
         Client client4 = new Client(4,"Петя", callCenter,CallScope.TECH);

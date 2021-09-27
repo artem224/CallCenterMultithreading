@@ -8,39 +8,37 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.ReentrantLock;
 
+import com.epam.jwd.center.exceptions.CallCenterException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class CallCenter {
 
     private static final int OPERATOR_AMOUNT = 3;
-
-
+    private static final Logger logger = LogManager.getLogger(CallCenter.class);
     private static final ReentrantLock INSTANCE_LOCK = new ReentrantLock();
     private static final ReentrantLock OPERATOR_LOCK = new ReentrantLock();
     private static final AtomicBoolean IS_INSTANCE_CREATED = new AtomicBoolean(false);
-    private final Semaphore semaphore = new Semaphore(OPERATOR_AMOUNT, true);
+    private final Semaphore semaphore = new Semaphore(OPERATOR_AMOUNT, false);
     private static CallCenter callCenterInstance;
 
     private final List<Operator> allOperators;
-    private List<CallScope> scopes = Arrays.asList(CallScope.TECH,CallScope.ORDERS,CallScope.SUPPORT);
+    private List<CallScope> scopes = Arrays.asList(CallScope.TECH, CallScope.ORDERS, CallScope.SUPPORT);
 
     private CallCenter() {
-        //LOGGER.info("Starting creating taxi...");
+        logger.info("Beginning of work the CALL CENTER \n");
         allOperators = new ArrayList<>();
         for (int i = 0; i < OPERATOR_AMOUNT; i++) {
-//            int taxiLocationX = (int) ((Math.random() * MAX_TAXI_LOCATION - MIN_TAXI_LOCATION + 1))
-//                    + MIN_TAXI_LOCATION;
-//            int taxiLocationY = (int) ((Math.random() * MAX_TAXI_LOCATION - MIN_TAXI_LOCATION + 1))
-//                    + MIN_TAXI_LOCATION;
-//            double taxiRadius = (Math.random() * MAX_TAXI_RADIUS - MIN_TAXI_RADIUS) + MIN_TAXI_RADIUS;
             Random random = new Random();
             int min = 5;
             int max = 100;
             int diff = max - min;
             int operatorId = random.nextInt(diff + 1) + min;
-            Operator taxi = new Operator(operatorId,scopes.get(i));
-            //LOGGER.info("Created taxi: " + taxi);
-            allOperators.add(taxi);
+            Operator operator = new Operator(operatorId, scopes.get(i));
+            logger.info("Operator went to work \n" + operator);
+            allOperators.add(operator);
         }
-//        LOGGER.info("Taxi was created!");
+        logger.info("All operators went to work \n");
     }
 
     public static CallCenter getInstance() {
@@ -49,8 +47,7 @@ public class CallCenter {
             try {
                 if (!IS_INSTANCE_CREATED.get()) {
                     callCenterInstance = new CallCenter();
-                    //LOGGER.info("Uber cab company is created!");
-                    System.out.println("Call center is created");
+                    logger.info("Call center is created");
                     IS_INSTANCE_CREATED.set(true);
                 }
             } finally {
@@ -60,23 +57,29 @@ public class CallCenter {
         return callCenterInstance;
     }
 
-    public Operator acquireOperator(Client client) throws Exception {
+    public Operator acquireOperator(Client client) throws CallCenterException {
         try {
-            Random rand = new Random();
             semaphore.acquire();
+            logger.info(String.format("CALL CENTER: %s is accepted on the issue %s \n", client.getName() ,client.getCallScope()));
             OPERATOR_LOCK.lock();
             Operator operator = null;
-            System.out.printf(" Call centre :%s is phoned the Call center!! \n", client.getName());
             int indexOperator = findRequiredOperator(client);
             if (indexOperator != -1) {
                 operator = allOperators.remove(indexOperator);
-                System.out.printf("Оператор на связи %s\n", client.getName());
+                logger.info(String.format("CALL CENTER: Operator on the issue " +
+                        "%s with id %d in touch with" +
+                        " a client by name - %s " +
+                        "on the client issue - %s \n", operator.getCallScope(),operator.getId(),
+                        client.getName() ,client.getCallScope()));
             } else {
-                System.out.printf("Дорогой клиент %s: нужный вам оператор %s сейчас занят \n", client.getName(), client.getCallScope());
+                logger.info(String.format("CALL CENTER: Dear %s the operator %s you need " +
+                                "is busy. Please wait \n", client.getName(), client.getCallScope()));
+                semaphore.release();
+
             }
             return operator;
         } catch (InterruptedException e) {
-            throw new Exception(e.getMessage(), e);
+            throw new CallCenterException(e.getMessage(), e);
         } finally {
             OPERATOR_LOCK.unlock();
         }
@@ -87,8 +90,8 @@ public class CallCenter {
         try {
             allOperators.add(operator);
             semaphore.release();
-            System.out.println((String.format("Колл центр : Оператор  #%d  с вопросом %s свободен! \n",
-                    operator.getId(),operator.getCallScope())));
+            logger.info(String.format("CALL CENTER: Operator #%d on the issue %s is free \n",
+                            operator.getId(),operator.getCallScope()));
         } finally {
             OPERATOR_LOCK.unlock();
         }
@@ -103,7 +106,4 @@ public class CallCenter {
         }
         return index;
     }
-
-
 }
-

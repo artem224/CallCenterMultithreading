@@ -1,10 +1,14 @@
 package com.epam.jwd.center.entity;
 
+import com.epam.jwd.center.exceptions.CallCenterException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Objects;
 
 public class Client implements Runnable {
 
-
+    private static final Logger logger = LogManager.getLogger(Client.class);
     private int clientId;
     private final String name;
     private final CallCenter callCenter;
@@ -50,43 +54,25 @@ public class Client implements Runnable {
     @Override
     public void run() {
         try {
-            //LOGGER.info(String.format("%s: is calling to Uber cab company...", name));
-            System.out.printf("%s: is calling to call centre with question %s %n \n",name,getCallScope());
+            logger.info(String.format("CLIENT: %s: is calling to call centre with question %s %n \n",this.name,this.getCallScope()));
             Operator operator = callCenter.acquireOperator(this);
-
             if (operator == null) {
-
-                //LOGGER.info(String.format("%s: is getting Uber notification of rejecting call " +
-                //"and starts finding other taxi companies :(", name));
-                System.out.printf("Ждите на линии пожалуйста %s \n", this.getName());
+                logger.info(String.format("CLIENT: %s: wait on the line please \n",this.name));
+                Thread.sleep(2000);
                 run();
-
             } else {
-
-//            LOGGER.info(String.format("%s: is getting Uber notification of accepting call " +
-//                    "and starts waiting uber taxi #%d...", name, taxi.getTaxiNumber()));
                 operator.answerClient(this);
-                Thread.sleep(3000);
-
+                Thread.sleep(4000);
                 if (isOnLine) {
-                    // на линии
-//                locationCoordinateX = destinationPointX;
-//                locationCoordinateY = destinationPointY;
-//                LOGGER.info(String.format("%s: is arrived to destination point!", name));
-                    System.out.printf("Разговор с %s окончен \n",this.name);
+                    logger.info(String.format("CLIENT : Conversation with %s finished \n",this.name));
                 } else {
-                    System.out.printf("Оставайтесь на линии %s \n" , this.getName());
-
-                    //callCenter.releaseOperator(operator);
-                    // не на линии
-                    //in this program version it impossible, but in the future versions can be
-//                LOGGER.info(String.format("%s: is not arrived to destination point!", name));
+                    logger.info(String.format("CLIENT : Stay on line %s \n" , this.getName()));
                 }
                 callCenter.releaseOperator(operator);
 
             }
-        } catch (Exception e) {
-            //LOGGER.error(e.getMessage(), e);
+        } catch (CallCenterException | InterruptedException e) {
+            logger.error(e.getMessage(),e);
         }
     }
 
