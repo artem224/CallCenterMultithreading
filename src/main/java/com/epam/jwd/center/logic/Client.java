@@ -1,4 +1,4 @@
-package com.epam.jwd.center.entity;
+package com.epam.jwd.center.logic;
 
 import com.epam.jwd.center.exceptions.CallCenterException;
 import org.apache.logging.log4j.LogManager;
@@ -65,8 +65,6 @@ public class Client implements Runnable {
                 Thread.sleep(4000);
                 if (isOnLine) {
                     logger.info(String.format("CLIENT : Conversation with %s finished \n",this.name));
-                } else {
-                    logger.info(String.format("CLIENT : Stay on line %s \n" , this.getName()));
                 }
                 callCenter.releaseOperator(operator);
 

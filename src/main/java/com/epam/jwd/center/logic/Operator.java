@@ -1,4 +1,4 @@
-package com.epam.jwd.center.entity;
+package com.epam.jwd.center.logic;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

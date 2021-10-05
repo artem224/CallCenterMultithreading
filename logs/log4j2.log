@@ -1,36 +1,90 @@
-2021-09-28 01:10:06 INFO c.e.j.c.e.Client [pool-2-thread-5] CLIENT : Conversation with Кирилл finished 
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Beginning of work the CALL CENTER 
 
-2021-09-28 01:10:06 INFO c.e.j.c.e.Operator [pool-2-thread-3] OPERATOR : HELLO DEAR CLIENT. Уou are connected with operator. Your name is Саня
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Operator went to work 
+Operator{id=17, callScope=TECH}
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Operator went to work 
+Operator{id=41, callScope=ORDERS}
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Operator went to work 
+Operator{id=57, callScope=SUPPORT}
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] All operators went to work 
 
-2021-09-28 01:10:06 INFO c.e.j.c.e.CallCenter [pool-2-thread-4] CALL CENTER: Dear Петя the operator TECH you need is busy. Please wait 
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] CALL CENTER: Huan is accepted on the issue SUPPORT 
 
-2021-09-28 01:10:06 INFO c.e.j.c.e.Client [pool-2-thread-4] CLIENT: Петя: wait on the line please 
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] CALL CENTER: Operator on the issue SUPPORT with id 2 in touch with a client by name - Huan on the client issue - SUPPORT 
 
-2021-09-28 01:10:06 INFO c.e.j.c.e.CallCenter [pool-2-thread-5] CALL CENTER: Operator #14 on the issue SUPPORT is free 
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Beginning of work the CALL CENTER 
 
-2021-09-28 01:10:08 INFO c.e.j.c.e.Client [pool-2-thread-4] CLIENT: Петя: is calling to call centre with question TECH 
- 
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Operator went to work 
+Operator{id=30, callScope=TECH}
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Operator went to work 
+Operator{id=37, callScope=ORDERS}
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Operator went to work 
+Operator{id=79, callScope=SUPPORT}
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] All operators went to work 
 
-2021-09-28 01:10:08 INFO c.e.j.c.e.CallCenter [pool-2-thread-4] CALL CENTER: Петя is accepted on the issue TECH 
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] CALL CENTER: PIPA is accepted on the issue TECH 
 
-2021-09-28 01:10:08 INFO c.e.j.c.e.CallCenter [pool-2-thread-4] CALL CENTER: Dear Петя the operator TECH you need is busy. Please wait 
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] CALL CENTER: Operator on the issue TECH with id 3 in touch with a client by name - PIPA on the client issue - TECH 
 
-2021-09-28 01:10:08 INFO c.e.j.c.e.Client [pool-2-thread-4] CLIENT: Петя: wait on the line please 
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Beginning of work the CALL CENTER 
 
-2021-09-28 01:10:10 INFO c.e.j.c.e.Client [pool-2-thread-3] CLIENT : Conversation with Саня finished 
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Operator went to work 
+Operator{id=99, callScope=TECH}
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Operator went to work 
+Operator{id=21, callScope=ORDERS}
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Operator went to work 
+Operator{id=36, callScope=SUPPORT}
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] All operators went to work 
 
-2021-09-28 01:10:10 INFO c.e.j.c.e.CallCenter [pool-2-thread-3] CALL CENTER: Operator #27 on the issue TECH is free 
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Beginning of work the CALL CENTER 
 
-2021-09-28 01:10:10 INFO c.e.j.c.e.Client [pool-2-thread-4] CLIENT: Петя: is calling to call centre with question TECH 
- 
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Operator went to work 
+Operator{id=95, callScope=TECH}
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Operator went to work 
+Operator{id=20, callScope=ORDERS}
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Operator went to work 
+Operator{id=42, callScope=SUPPORT}
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] All operators went to work 
 
-2021-09-28 01:10:10 INFO c.e.j.c.e.CallCenter [pool-2-thread-4] CALL CENTER: Петя is accepted on the issue TECH 
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] CALL CENTER: Huan is accepted on the issue SUPPORT 
 
-2021-09-28 01:10:10 INFO c.e.j.c.e.CallCenter [pool-2-thread-4] CALL CENTER: Operator on the issue TECH with id 27 in touch with a client by name - Петя on the client issue - TECH 
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] CALL CENTER: Dear Huan the operator SUPPORT you need is busy. Please wait 
 
-2021-09-28 01:10:10 INFO c.e.j.c.e.Operator [pool-2-thread-4] OPERATOR : HELLO DEAR CLIENT. Уou are connected with operator. Your name is Петя
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Beginning of work the CALL CENTER 
 
-2021-09-28 01:10:14 INFO c.e.j.c.e.Client [pool-2-thread-4] CLIENT : Conversation with Петя finished 
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Operator went to work 
+Operator{id=37, callScope=TECH}
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Operator went to work 
+Operator{id=6, callScope=ORDERS}
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Operator went to work 
+Operator{id=91, callScope=SUPPORT}
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] All operators went to work 
 
-2021-09-28 01:10:14 INFO c.e.j.c.e.CallCenter [pool-2-thread-4] CALL CENTER: Operator #27 on the issue TECH is free 
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] CALL CENTER: Huan is accepted on the issue SUPPORT 
+
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] CALL CENTER: Dear Huan the operator SUPPORT you need is busy. Please wait 
+
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Beginning of work the CALL CENTER 
+
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Operator went to work 
+Operator{id=16, callScope=TECH}
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Operator went to work 
+Operator{id=36, callScope=ORDERS}
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Operator went to work 
+Operator{id=49, callScope=SUPPORT}
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] All operators went to work 
+
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] CALL CENTER: Huan is accepted on the issue SUPPORT 
+
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] CALL CENTER: Operator on the issue SUPPORT with id 2 in touch with a client by name - Huan on the client issue - SUPPORT 
+
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Beginning of work the CALL CENTER 
+
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Operator went to work 
+Operator{id=13, callScope=TECH}
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Operator went to work 
+Operator{id=25, callScope=ORDERS}
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] Operator went to work 
+Operator{id=25, callScope=SUPPORT}
+2021-10-05 18:16:20 INFO c.e.j.c.l.CallCenter [main] All operators went to work 
 

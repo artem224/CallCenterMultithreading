@@ -1,4 +1,4 @@
-package com.epam.jwd.center.entity;
+package com.epam.jwd.center.logic;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -64,7 +64,7 @@ public class CallCenter {
             OPERATOR_LOCK.lock();
             Operator operator = null;
             int indexOperator = findRequiredOperator(client);
-            if (indexOperator != -1) {
+            if (indexOperator > -1) {
                 operator = allOperators.remove(indexOperator);
                 logger.info(String.format("CALL CENTER: Operator on the issue " +
                         "%s with id %d in touch with" +
@@ -106,4 +106,14 @@ public class CallCenter {
         }
         return index;
     }
+
+    public List<Operator> getListOperator() {
+        return allOperators;
+    }
+
+    public void setAllOperators(List<Operator> operators) {
+        allOperators.clear();
+        allOperators.addAll(operators);
+    }
+
 }

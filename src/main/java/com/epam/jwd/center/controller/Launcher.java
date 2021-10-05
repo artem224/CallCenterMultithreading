@@ -1,13 +1,11 @@
 package com.epam.jwd.center.controller;
 
-import com.epam.jwd.center.entity.CallCenter;
-import com.epam.jwd.center.entity.CallScope;
-import com.epam.jwd.center.entity.Client;
-import com.epam.jwd.center.entity.Operator;
+import com.epam.jwd.center.logic.CallCenter;
+import com.epam.jwd.center.logic.CallScope;
+import com.epam.jwd.center.logic.Client;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
